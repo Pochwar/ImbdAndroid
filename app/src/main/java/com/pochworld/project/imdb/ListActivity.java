@@ -18,9 +18,12 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class ListActivity extends AppCompatActivity {
+
+    private MovieAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,8 +38,17 @@ public class ListActivity extends AppCompatActivity {
 
         Button submit = findViewById(R.id.submit);
 
-        final MovieAdapter adapter = new MovieAdapter(this,
-                R.layout.item_layout, new ArrayList<Movie>());
+        /*
+        parcelisation
+         */
+        List<Movie> movies = new ArrayList<>();
+
+        if (savedInstanceState != null && savedInstanceState.containsKey("MOVIES_LIST")) {
+            movies = savedInstanceState.getParcelableArrayList("MOVIES_LIST");
+        }
+
+        adapter = new MovieAdapter(this,
+                R.layout.item_layout, movies);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +95,21 @@ public class ListActivity extends AppCompatActivity {
         });
     }
 
+    /*
+    Hide keyboard when search
+     */
     public static void hideSoftKeyboard (Activity activity, View view)
     {
         InputMethodManager imm = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
+    }
+
+    /*
+    parcelisation
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList("MOVIES_LIST", (ArrayList<Movie>) adapter.getData());
     }
 }
