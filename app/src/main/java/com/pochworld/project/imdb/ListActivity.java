@@ -38,6 +38,7 @@ public class ListActivity extends AppCompatActivity {
         search = findViewById(R.id.search);
 
         Button submit = findViewById(R.id.submit);
+        Button gotoFavorites = findViewById(R.id.gotoFavorites);
 
         /*
         parcelisation
@@ -73,6 +74,15 @@ public class ListActivity extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        gotoFavorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(ListActivity.this, FavoriteActivity.class);
+
+                ListActivity.this.startActivity(intent);
             }
         });
 
