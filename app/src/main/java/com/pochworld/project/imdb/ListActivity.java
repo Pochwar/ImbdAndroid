@@ -24,6 +24,7 @@ import java.util.concurrent.ExecutionException;
 public class ListActivity extends AppCompatActivity {
 
     private MovieAdapter adapter;
+    private EditText search;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class ListActivity extends AppCompatActivity {
 
         final MovieAccessor movieAccessor = new MovieAccessor();
 
-        final EditText search = findViewById(R.id.search);
+        search = findViewById(R.id.search);
 
         Button submit = findViewById(R.id.submit);
 
