@@ -46,4 +46,8 @@
         <item name="android:textColor">@color/yellow</item>
     </style>
 
+    <style name="IMDBDetailCheckbox" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
 </resources>

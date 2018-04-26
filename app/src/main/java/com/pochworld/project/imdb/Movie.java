@@ -1,15 +1,33 @@
 package com.pochworld.project.imdb;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
+@Entity(tableName = "movies")
 public class Movie implements Parcelable{
 
-    private String title;
+    @PrimaryKey
+    @NonNull
     private String id;
+
+    @ColumnInfo(name = "title")
+    private String title;
+
+    @ColumnInfo(name = "poster")
     private String poster;
+
+    @ColumnInfo(name = "year")
     private String year;
+
+    @ColumnInfo(name = "genre")
     private String genre;
+
+    @ColumnInfo(name = "plot")
     private String plot;
 
     /*
@@ -24,6 +42,7 @@ public class Movie implements Parcelable{
         this.setPlot(plot);
     }
 
+    @Ignore
     private Movie(Parcel in) {
         this.title = in.readString();
         this.id = in.readString();
@@ -33,10 +52,12 @@ public class Movie implements Parcelable{
         this.plot = in.readString();
     }
 
+    @Ignore
     public int describeContents() {
         return 0;
     }
 
+    @Ignore
     public void writeToParcel(Parcel out, int flags) {
         out.writeString(this.title);
         out.writeString(this.id);
@@ -46,6 +67,7 @@ public class Movie implements Parcelable{
         out.writeString(this.plot);
     }
 
+    @Ignore
     public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
         public Movie createFromParcel(Parcel in) {
             return new Movie(in);

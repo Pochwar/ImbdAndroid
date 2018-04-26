@@ -59,23 +59,20 @@ public class ListActivity extends AppCompatActivity {
                 ArrayList<Movie> movies = null;
                 try {
                     movies = movieAccessor.getMoviesByTitle(search.getText().toString());
-                } catch (ExecutionException e) {
+
+                    adapter.getData().clear();
+
+                    adapter.getData().addAll(movies);
+
+                    adapter.notifyDataSetChanged();
+
+                    hideSoftKeyboard(ListActivity.this, v);
+                } catch (ExecutionException | InterruptedException | IOException | JSONException e) {
                     e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
                 }
 
-                adapter.getData().clear();
 
-                adapter.getData().addAll(movies);
-
-                adapter.notifyDataSetChanged();
-
-                hideSoftKeyboard(ListActivity.this, v);
             }
         });
 
