@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">IMDB</string>
+    <string name="search_input">Enter movie title</string>
+    <string name="submit_btn">Search!</string>
+</resources>
