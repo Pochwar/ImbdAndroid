@@ -22,9 +22,15 @@ public abstract class LayoutActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_home:
+                Intent intent_home =  new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(intent_home);
+
+                return true;
+
             case R.id.menu_favorite:
-                Intent intent =  new Intent(getApplicationContext(), FavoriteActivity.class);
-                startActivity(intent);
+                Intent intent_fav =  new Intent(getApplicationContext(), FavoriteActivity.class);
+                startActivity(intent_fav);
 
                 return true;
 
