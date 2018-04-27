@@ -1,7 +1,5 @@
-package com.pochworld.project.imdb;
+package com.pochworld.project.imdb.Fragments;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,12 +8,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.pochworld.project.imdb.Activities.DetailsActivity;
+import com.pochworld.project.imdb.IMDBApplication;
+import com.pochworld.project.imdb.Models.Movie;
+import com.pochworld.project.imdb.Accessors.MovieAccessor;
+import com.pochworld.project.imdb.Adapters.MovieAdapter;
+import com.pochworld.project.imdb.R;
 
 import org.json.JSONException;
 

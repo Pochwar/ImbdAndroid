@@ -1,4 +1,4 @@
-package com.pochworld.project.imdb;
+package com.pochworld.project.imdb.Models;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

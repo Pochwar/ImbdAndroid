@@ -1,6 +1,9 @@
-package com.pochworld.project.imdb;
+package com.pochworld.project.imdb.Accessors;
 
 import android.support.v7.app.AppCompatActivity;
+
+import com.pochworld.project.imdb.Models.Movie;
+import com.pochworld.project.imdb.NetworkRequestLauncher;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,7 +12,6 @@ import org.json.JSONTokener;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import okhttp3.HttpUrl;

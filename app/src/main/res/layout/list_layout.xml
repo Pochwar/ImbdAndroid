@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <fragment
-        class="com.pochworld.project.imdb.ListFragment"
+        class="com.pochworld.project.imdb.Fragments.ListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

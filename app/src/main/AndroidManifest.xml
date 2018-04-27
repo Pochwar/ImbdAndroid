@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         >
         <activity
-            android:name=".ListActivity"
+            android:name=".Activities.ListActivity"
             android:windowSoftInputMode="stateHidden"
             >
             <intent-filter>
@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DetailsActivity" />
-        <activity android:name=".FavoriteActivity" />
+        <activity android:name=".Activities.DetailsActivity" />
+        <activity android:name=".Activities.FavoriteActivity" />
     </application>
 </manifest>

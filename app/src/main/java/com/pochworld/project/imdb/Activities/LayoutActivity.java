@@ -1,4 +1,4 @@
-package com.pochworld.project.imdb;
+package com.pochworld.project.imdb.Activities;
 
 
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.pochworld.project.imdb.R;
 
 
 public abstract class LayoutActivity extends AppCompatActivity {

@@ -1,9 +1,11 @@
-package com.pochworld.project.imdb;
+package com.pochworld.project.imdb.DAO;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+
+import com.pochworld.project.imdb.Models.Movie;
 
 import java.util.List;
 

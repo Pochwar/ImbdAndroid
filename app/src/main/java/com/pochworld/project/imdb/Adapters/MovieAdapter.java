@@ -1,4 +1,4 @@
-package com.pochworld.project.imdb;
+package com.pochworld.project.imdb.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.pochworld.project.imdb.Models.Movie;
+import com.pochworld.project.imdb.R;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.pochworld.project.imdb;
+package com.pochworld.project.imdb.Fragments;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -10,18 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.pochworld.project.imdb.Activities.DetailsActivity;
+import com.pochworld.project.imdb.AppDatabase;
+import com.pochworld.project.imdb.IMDBApplication;
+import com.pochworld.project.imdb.Models.Movie;
+import com.pochworld.project.imdb.Adapters.MovieAdapter;
+import com.pochworld.project.imdb.R;
 
-import org.json.JSONException;
-
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
