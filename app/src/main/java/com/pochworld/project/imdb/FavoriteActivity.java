@@ -22,7 +22,7 @@ public class FavoriteActivity extends LayoutActivity {
 
         super.onCreate(savedInstanceState);
 
-        db =  Room.databaseBuilder(getApplicationContext(),AppDatabase.class, "imdb_database").build();
+        db = ((IMDBApplication)FavoriteActivity.this.getApplication()).getDatabase();
 
         setContentView(R.layout.favorites_layout);
 

@@ -26,7 +26,7 @@ public class DetailsActivity extends LayoutActivity {
 
         super.onCreate(savedInstanceState);
 
-        db =  Room.databaseBuilder(getApplicationContext(),AppDatabase.class, "imdb_database").build();
+        db =  ((IMDBApplication)DetailsActivity.this.getApplication()).getDatabase();
 
         ImageLoader imgLoader = ImageLoader.getInstance();
 

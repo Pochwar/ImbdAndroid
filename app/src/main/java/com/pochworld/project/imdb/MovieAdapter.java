@@ -30,8 +30,6 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
         this.movies = movies;
 
         imgLoader = ImageLoader.getInstance();
-
-        imgLoader.init(ImageLoaderConfiguration.createDefault(context));
     }
 
     public List<Movie> getData() {
