@@ -1,29 +1,17 @@
 package com.pochworld.project.imdb;
 
-import android.app.Activity;
 import android.arch.persistence.room.Room;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import org.json.JSONException;
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class FavoriteActivity extends AppCompatActivity {
+public class FavoriteActivity extends LayoutActivity {
 
     private MovieAdapter adapter;
 

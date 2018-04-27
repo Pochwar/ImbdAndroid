@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends LayoutActivity {
 
     private MovieAdapter adapter;
     private EditText search;
@@ -38,7 +38,6 @@ public class ListActivity extends AppCompatActivity {
         search = findViewById(R.id.search);
 
         Button submit = findViewById(R.id.submit);
-        Button gotoFavorites = findViewById(R.id.gotoFavorites);
 
         /*
         parcelisation
@@ -76,16 +75,6 @@ public class ListActivity extends AppCompatActivity {
 
             }
         });
-
-        gotoFavorites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =  new Intent(ListActivity.this, FavoriteActivity.class);
-
-                ListActivity.this.startActivity(intent);
-            }
-        });
-
 
         ListView list = findViewById(R.id.list);
 

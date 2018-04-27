@@ -30,8 +30,9 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
+        android:button="@drawable/checkbox_star"
         android:checked="false"
-        android:text="Add to favorite"
+        android:text="Favorite"
         android:textColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

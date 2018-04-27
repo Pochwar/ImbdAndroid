@@ -4,8 +4,6 @@ import android.arch.persistence.room.Room;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -19,7 +17,7 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends LayoutActivity {
 
     AppDatabase db;
 

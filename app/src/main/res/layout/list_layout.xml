@@ -6,26 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/gotoFavorites"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Favorites"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/search"
         style="@style/IMDBSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/search_input"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gotoFavorites" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/submit"

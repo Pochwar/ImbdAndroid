@@ -36,6 +36,7 @@
     <style name="IMDBSearch" parent="@android:style/Widget.EditText">
         <item name="android:background">@color/white</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/darkGrey</item>
     </style>
 
     <style name="IMDBList" parent="@android:style/Widget.ListView">
