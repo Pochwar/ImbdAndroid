@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,18 +38,6 @@ public class ListFragment extends Fragment {
     private List<Movie> movies = new ArrayList<>();
     private ViewGroup c;
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        /*
-        parcelisation
-         */
-        if (savedInstanceState != null && savedInstanceState.containsKey("MOVIES_LIST")) {
-            movies = savedInstanceState.getParcelableArrayList("MOVIES_LIST");
-        }
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,6 +52,13 @@ public class ListFragment extends Fragment {
         search = v.findViewById(R.id.search);
 
         Button submit = v.findViewById(R.id.submit);
+
+         /*
+        parcelisation
+         */
+        if (savedInstanceState != null && savedInstanceState.containsKey("MOVIES_LIST")) {
+            movies = savedInstanceState.getParcelableArrayList("MOVIES_LIST");
+        }
 
         adapter = new MovieAdapter(this.getContext(),
                 R.layout.item_layout, movies);
@@ -112,8 +108,9 @@ public class ListFragment extends Fragment {
     parcelisation
      */
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
+    public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+
         outState.putParcelableArrayList("MOVIES_LIST", (ArrayList<Movie>) adapter.getData());
     }
 }
