@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,7 +47,7 @@ public class ListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View v = inflater.inflate(R.layout.list_layout_fragment, container, false);
+        final View v = inflater.inflate(R.layout.list_layout_fragment, container, false);
 
         final MovieAccessor movieAccessor = new MovieAccessor();
 
@@ -59,7 +60,7 @@ public class ListFragment extends Fragment {
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getContext(), "search in progress", Toast.LENGTH_SHORT).show();
 
                 ArrayList<Movie> movies = null;
@@ -71,6 +72,9 @@ public class ListFragment extends Fragment {
                     adapter.getData().addAll(movies);
 
                     adapter.notifyDataSetChanged();
+
+                    //hide keyboard after search
+                    ((IMDBApplication)ListFragment.this.getActivity().getApplication()).hideKeyboard(getActivity(), v);
 
                 } catch (ExecutionException | InterruptedException | IOException | JSONException e) {
                     e.printStackTrace();
