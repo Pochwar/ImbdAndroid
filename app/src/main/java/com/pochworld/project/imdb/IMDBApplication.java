@@ -14,7 +14,7 @@ public class IMDBApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i("DEBUG", "My supa app IMDB is initializing .|..|");
+        Log.i("INFO", "Initializing IMDB App");
 
         // init db
         db =  Room.databaseBuilder(getApplicationContext(),AppDatabase.class, "imdb_database").build();

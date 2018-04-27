@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/menu_favorite"
-        android:icon="@android:drawable/btn_star_big_on"
+        android:icon="@drawable/ic_favorite_on"
         android:title="Item"
         app:showAsAction="always" />
 </menu>
