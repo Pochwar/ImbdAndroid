@@ -29,6 +29,14 @@ import java.util.concurrent.ExecutionException;
 public class DetailsFragment extends Fragment {
 
     AppDatabase db;
+    TextView title;
+    TextView id;
+    ImageView poster;
+    TextView genre;
+    TextView year;
+    TextView plot;
+    CheckBox favorite;
+    String movieId;
 
     @Nullable
     @Override
@@ -37,22 +45,26 @@ public class DetailsFragment extends Fragment {
 
         db =  ((IMDBApplication)DetailsFragment.this.getActivity().getApplication()).getDatabase();
 
-        ImageLoader imgLoader = ImageLoader.getInstance();
 
-        final MovieAccessor movieAccessor = new MovieAccessor();
 
         View v = inflater.inflate(R.layout.detail_layout_fragment, container, false);
 
-        TextView title = v.findViewById(R.id.title);
-        TextView id = v.findViewById(R.id.id);
-        ImageView poster = v.findViewById(R.id.poster);
-        TextView genre = v.findViewById(R.id.genre);
-        TextView year = v.findViewById(R.id.year);
-        TextView plot = v.findViewById(R.id.plot);
-        CheckBox favorite = v.findViewById(R.id.favorite);
+        title = v.findViewById(R.id.title);
+        id = v.findViewById(R.id.id);
+        poster = v.findViewById(R.id.poster);
+        genre = v.findViewById(R.id.genre);
+        year = v.findViewById(R.id.year);
+        plot = v.findViewById(R.id.plot);
+        favorite = v.findViewById(R.id.favorite);
 
-        String movieId = this.getActivity().getIntent().getStringExtra("MOVIE_ID");
+        movieId = this.getActivity().getIntent().getStringExtra("MOVIE_ID");
 
+        setContent(movieId);
+
+        return v;
+    }
+
+    public void setContent(String movieId) {
         // check if movie is in favorite
         try {
             favorite.setChecked(new CheckMovieIsInDB().execute(movieId).get());
@@ -63,6 +75,10 @@ public class DetailsFragment extends Fragment {
         }
 
         try {
+            ImageLoader imgLoader = ImageLoader.getInstance();
+
+            final MovieAccessor movieAccessor = new MovieAccessor();
+
             final Movie movie = movieAccessor.getMovieById(movieId);
 
             title.setText(movie.getTitle());
@@ -106,8 +122,6 @@ public class DetailsFragment extends Fragment {
             e.printStackTrace();
             Toast.makeText(this.getContext(), "An error occurred", Toast.LENGTH_SHORT).show();
         }
-
-        return v;
     }
 
     public class CheckMovieIsInDB extends AsyncTask<String, Void, Boolean> {

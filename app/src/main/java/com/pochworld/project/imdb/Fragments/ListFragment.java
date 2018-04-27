@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.pochworld.project.imdb.Activities.DetailsActivity;
+import com.pochworld.project.imdb.Activities.ListActivity;
 import com.pochworld.project.imdb.IMDBApplication;
 import com.pochworld.project.imdb.Models.Movie;
 import com.pochworld.project.imdb.Accessors.MovieAccessor;
@@ -27,12 +28,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.zip.Inflater;
 
 public class ListFragment extends Fragment {
 
     private MovieAdapter adapter;
     private EditText search;
     private List<Movie> movies = new ArrayList<>();
+    private ViewGroup c;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -50,6 +53,8 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+
+        c = container;
 
         final View v = inflater.inflate(R.layout.list_layout_fragment, container, false);
 
@@ -96,11 +101,7 @@ public class ListFragment extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent =  new Intent(getContext(), DetailsActivity.class);
-
-                intent.putExtra("MOVIE_ID", adapter.getData().get(position).getId());
-
-                startActivity(intent);
+                ((ListActivity)ListFragment.this.getActivity()).handleActionByOrientation(adapter.getData().get(position).getId());
             }
         });
 
